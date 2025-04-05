@@ -5,7 +5,7 @@
   vars_prompt:
     - name: adguard_admin_password
       prompt: "Enter AdGuard admin bcrypt password"
-      private: yes
+      private: true
 
     - name: timezone
       prompt: "Enter your timezone (e.g. Europe/London)"

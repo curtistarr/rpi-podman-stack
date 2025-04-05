@@ -1,5 +1,5 @@
 - name: Install Podman and Cockpit
-  apt:
+  ansible.builtin.apt:
     name:
       - podman
       - cockpit
@@ -7,7 +7,7 @@
     update_cache: true
 
 - name: Enable and start Cockpit
-  systemd:
+  ansible.builtin.systemd:
     name: cockpit
-    enabled: yes
+    enabled: true
     state: started
