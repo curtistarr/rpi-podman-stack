@@ -40,7 +40,7 @@
   changed_when: false
 
 - name: Copy unbound podman-compose.yaml
-  copy:
+  ansible.builtin.copy:
     src: unbound/podman-compose.yaml
     dest: /opt/unbound/podman-compose.yaml
     owner: pi
@@ -57,7 +57,7 @@
   changed_when: false
 
 - name: Create scrypted directory
-  file:
+  ansible.builtin.file:
     path: "/opt/scrypted"
     state: directory
     owner: pi
@@ -65,7 +65,7 @@
     mode: '0755'
 
 - name: Copy scrypted podman-compose.yaml
-  copy:
+  ansible.builtin.copy:
     src: scrypted/podman-compose.yaml
     dest: /opt/scrypted/podman-compose.yaml
     owner: pi
