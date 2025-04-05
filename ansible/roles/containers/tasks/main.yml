@@ -1,5 +1,6 @@
+---
 - name: Create adguardhome directory
-  file:
+  ansible.builtin.file:
     path: "/opt/adguardhome"
     state: directory
     owner: pi
@@ -7,7 +8,7 @@
     mode: '0755'
 
 - name: Copy whitelist file
-  copy:
+  ansible.builtin.copy:
     src: adguardhome/whitelist.txt
     dest: /opt/adguardhome/whitelist.txt
     owner: pi
@@ -15,7 +16,7 @@
     mode: '0644'
 
 - name: Copy podman-compose.yaml
-  copy:
+  ansible.builtin.copy:
     src: adguardhome/podman-compose.yaml
     dest: /opt/adguardhome/podman-compose.yaml
     owner: pi
@@ -23,7 +24,7 @@
     mode: '0644'
 
 - name: Template AdGuard config file
-  template:
+  ansible.builtin.template:
     src: adguardhome/conf/AdGuardHome.yaml.j2
     dest: /opt/adguardhome/AdGuardHome.yaml
     owner: pi
@@ -32,13 +33,15 @@
 
 - name: Start AdGuard Home with podman-compose
   become: false
-  shell: |
+  ansible.builtin.shell: |
     cd /opt/adguardhome
     podman-compose up -d
   args:
     executable: /bin/bash
+  changed_when: false
+
 - name: Create unbound directory
-  file:
+  ansible.builtin.file:
     path: "/opt/unbound"
     state: directory
     owner: pi
@@ -46,7 +49,7 @@
     mode: '0755'
 
 - name: Copy unbound podman-compose.yaml
-  copy:
+  ansible.builtin.copy:
     src: unbound/podman-compose.yaml
     dest: /opt/unbound/podman-compose.yaml
     owner: pi
@@ -55,14 +58,15 @@
 
 - name: Start Unbound with podman-compose
   become: false
-  shell: |
+  ansible.builtin.shell: |
     cd /opt/unbound
     podman-compose up -d
   args:
     executable: /bin/bash
+  changed_when: false
 
 - name: Create scrypted directory
-  file:
+  ansible.builtin.file:
     path: "/opt/scrypted"
     state: directory
     owner: pi
@@ -70,7 +74,7 @@
     mode: '0755'
 
 - name: Copy scrypted podman-compose.yaml
-  copy:
+  ansible.builtin.copy:
     src: scrypted/podman-compose.yaml
     dest: /opt/scrypted/podman-compose.yaml
     owner: pi
@@ -79,8 +83,9 @@
 
 - name: Start Scrypted with podman-compose
   become: false
-  shell: |
+  ansible.builtin.shell: |
     cd /opt/scrypted
     podman-compose up -d
   args:
     executable: /bin/bash
+  changed_when: false

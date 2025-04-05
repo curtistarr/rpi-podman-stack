@@ -1,9 +1,26 @@
+---
 custom_blocklists:
-  - { id: 1, name: "AdGuard DNS Filter", url: "https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt" }
-  - { id: 2, name: "Steven Black's Unified Hosts", url: "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts" }
-  - { id: 3, name: "AdAway Default Blocklist", url: "https://adaway.org/hosts.txt" }
-  - { id: 4, name: "Disconnect.me Ads", url: "https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt" }
-  - { id: 5, name: "EasyList", url: "https://v.firebog.net/hosts/Easylist.txt" }
-  - { id: 6, name: "EasyPrivacy", url: "https://v.firebog.net/hosts/Easyprivacy.txt" }
-  - { id: 7, name: "Malware Domain List", url: "https://www.malwaredomainlist.com/hostslist/hosts.txt" }
-  - { id: 8, name: "NoCoin Filter List", url: "https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser" }
+  - id: 1
+    name: "AdGuard DNS Filter"
+    url: "https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt"
+  - id: 2
+    name: "Steven Black Unified Hosts"
+    url: "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
+  - id: 3
+    name: "AdAway Default"
+    url: "https://adaway.org/hosts.txt"
+  - id: 4
+    name: "Disconnect.me Ads"
+    url: "https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt"
+  - id: 5
+    name: "EasyList"
+    url: "https://v.firebog.net/hosts/Easylist.txt"
+  - id: 6
+    name: "EasyPrivacy"
+    url: "https://v.firebog.net/hosts/Easyprivacy.txt"
+  - id: 7
+    name: "Malware Domain List"
+    url: "https://www.malwaredomainlist.com/hostslist/hosts.txt"
+  - id: 8
+    name: "NoCoin Filter List"
+    url: "https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser"
