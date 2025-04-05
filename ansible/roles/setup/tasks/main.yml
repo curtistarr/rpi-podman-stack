@@ -3,6 +3,7 @@
   ansible.builtin.apt:
     name:
       - podman
+      - podman-compose
       - cockpit
       - cockpit-podman
     update_cache: true
