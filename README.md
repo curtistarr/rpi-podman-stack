@@ -7,7 +7,7 @@ An Ansible-powered container stack for Raspberry Pi using Podman and Podman Comp
 Run this on your Raspberry Pi:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/curtistarr/rpi-podman-stack/main/bootstrap.sh | bash
+curl -sSL https://raw.githubusercontent.com/curtistarr/rpi-podman-stack/main/bootstrap.sh -o bootstrap.sh && bash bootstrap.sh
 ```
 
 This will:
