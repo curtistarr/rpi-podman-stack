@@ -13,5 +13,5 @@
       default: "Europe/London"
 
   roles:
-    - setup
+    - role: geerlingguy.podman
     - containers

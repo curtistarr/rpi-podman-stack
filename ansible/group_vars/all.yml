@@ -1,4 +1,5 @@
 ---
+podman_install_compose: true
 custom_blocklists:
   - id: 1
     name: "AdGuard DNS Filter"
