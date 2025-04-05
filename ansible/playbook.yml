@@ -1,0 +1,16 @@
+- name: Setup Raspberry Pi with Podman and containers
+  hosts: localhost
+  become: true
+
+  vars_prompt:
+    - name: adguard_admin_password
+      prompt: "Enter AdGuard admin bcrypt password"
+      private: yes
+
+    - name: timezone
+      prompt: "Enter your timezone (e.g. Europe/London)"
+      default: "Europe/London"
+
+  roles:
+    - setup
+    - containers

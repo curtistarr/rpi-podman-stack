@@ -1,0 +1,35 @@
+bind_port: 5353
+bind_host: 0.0.0.0
+users:
+  - name: admin
+    password: {{ adguard_admin_password | quote }}
+dns:
+  bind_hosts:
+    - 0.0.0.0
+  port: 5353
+  bootstrap_dns:
+    - 1.1.1.1
+    - 8.8.8.8
+  upstream_dns:
+    - '127.0.0.1:5335'
+  filtering_enabled: true
+  parental_control_enabled: false
+  safe_search_enabled: false
+  blocked_response_ttl: 10
+  ratelimit: 0
+http:
+  enabled: true
+  address: 0.0.0.0:80
+filters:
+{% for list in custom_blocklists %}
+  - enabled: true
+    url: {{ list.url }}
+    name: {{ list.name }}
+    id: {{ list.id }}
+{% endfor %}
+
+  - enabled: true
+    url: /opt/adguardhome/whitelist.txt
+    name: Local Whitelist
+    id: 100
+    whitelist: true

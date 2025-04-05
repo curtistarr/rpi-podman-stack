@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  scrypted:
+    image: koush/scrypted
+    container_name: scrypted
+    network_mode: host
+    privileged: true
+    environment:
+      SCRYPTED_DOCKER: true
+    volumes:
+      - ./scrypted-volume:/server/volume
+    restart: unless-stopped

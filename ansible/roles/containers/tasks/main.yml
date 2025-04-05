@@ -1,0 +1,86 @@
+- name: Create adguardhome directory
+  file:
+    path: "/opt/adguardhome"
+    state: directory
+    owner: pi
+    group: pi
+    mode: '0755'
+
+- name: Copy whitelist file
+  copy:
+    src: adguardhome/whitelist.txt
+    dest: /opt/adguardhome/whitelist.txt
+    owner: pi
+    group: pi
+    mode: '0644'
+
+- name: Copy podman-compose.yaml
+  copy:
+    src: adguardhome/podman-compose.yaml
+    dest: /opt/adguardhome/podman-compose.yaml
+    owner: pi
+    group: pi
+    mode: '0644'
+
+- name: Template AdGuard config file
+  template:
+    src: adguardhome/conf/AdGuardHome.yaml.j2
+    dest: /opt/adguardhome/AdGuardHome.yaml
+    owner: pi
+    group: pi
+    mode: '0644'
+
+- name: Start AdGuard Home with podman-compose
+  become: false
+  shell: |
+    cd /opt/adguardhome
+    podman-compose up -d
+  args:
+    executable: /bin/bash
+- name: Create unbound directory
+  file:
+    path: "/opt/unbound"
+    state: directory
+    owner: pi
+    group: pi
+    mode: '0755'
+
+- name: Copy unbound podman-compose.yaml
+  copy:
+    src: unbound/podman-compose.yaml
+    dest: /opt/unbound/podman-compose.yaml
+    owner: pi
+    group: pi
+    mode: '0644'
+
+- name: Start Unbound with podman-compose
+  become: false
+  shell: |
+    cd /opt/unbound
+    podman-compose up -d
+  args:
+    executable: /bin/bash
+
+- name: Create scrypted directory
+  file:
+    path: "/opt/scrypted"
+    state: directory
+    owner: pi
+    group: pi
+    mode: '0755'
+
+- name: Copy scrypted podman-compose.yaml
+  copy:
+    src: scrypted/podman-compose.yaml
+    dest: /opt/scrypted/podman-compose.yaml
+    owner: pi
+    group: pi
+    mode: '0644'
+
+- name: Start Scrypted with podman-compose
+  become: false
+  shell: |
+    cd /opt/scrypted
+    podman-compose up -d
+  args:
+    executable: /bin/bash

@@ -1,0 +1,8 @@
+.env
+*.retry
+*.log
+__pycache__/
+*.swp
+**/work/*
+!**/work/.keep
+.DS_Store
