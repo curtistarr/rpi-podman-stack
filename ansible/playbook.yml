@@ -7,12 +7,10 @@
     - name: adguard_admin_password
       prompt: "Enter AdGuard admin bcrypt password"
       private: true
-      when: adguard_admin_password is not defined
 
     - name: timezone
       prompt: "Enter your timezone (e.g. Europe/London)"
       default: "Europe/London"
-      when: timezone is not defined
 
   roles:
     - setup
