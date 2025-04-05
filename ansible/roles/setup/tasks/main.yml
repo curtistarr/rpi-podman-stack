@@ -1,3 +1,4 @@
+---
 - name: Install Podman and Cockpit
   ansible.builtin.apt:
     name:

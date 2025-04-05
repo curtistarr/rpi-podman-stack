@@ -1,3 +1,4 @@
+---
 - name: Create adguardhome directory
   ansible.builtin.file:
     path: "/opt/adguardhome"
