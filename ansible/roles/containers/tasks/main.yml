@@ -40,6 +40,14 @@
     executable: /bin/bash
   changed_when: false
 
+- name: Create unbound directory
+  ansible.builtin.file:
+    path: "/opt/unbound"
+    state: directory
+    owner: pi
+    group: pi
+    mode: '0755'
+
 - name: Copy unbound podman-compose.yaml
   ansible.builtin.copy:
     src: unbound/podman-compose.yaml
